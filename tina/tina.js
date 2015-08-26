@@ -542,6 +542,8 @@ var Tina = function (ops) {
 					source.removeListener(event, this);
 				}
 			}
+			if(this._listeners)
+				this._listeners = null;
 		}
 	});
 
@@ -673,7 +675,8 @@ var Tina = function (ops) {
 
 		T.width = parseInt(T.cvs.width - (options.x || 0) / T.scale.x, 10);
 		T.height = parseInt(T.cvs.height / T.scale.y, 10);
-
+		T.canvas_tran_x=options.x||0;
+		T.canvas_tran_y=options.y||0;
 		// TODO: 处理屏幕旋转
 		window.addEventListener("orientationchange", function () {
 			setTimeout(function () {

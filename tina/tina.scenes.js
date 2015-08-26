@@ -279,8 +279,8 @@ Tina.Scenes = function (T) {
         },
         getInputPoint: function (e, element) {
             var point = {
-                x: (e.pageX || e.clientX + document.body.scrollLeft) - element.offsetLeft,
-                y: (e.pageY || e.clientY + document.body.scrollTop) - element.offsetTop
+                x: (e.pageX || e.clientX + document.body.scrollLeft) - element.offsetLeft-T.canvas_tran_x,
+                y: (e.pageY || e.clientY + document.body.scrollTop) - element.offsetTop-T.canvas_tran_y
             };
 
             if (T.scale) {
